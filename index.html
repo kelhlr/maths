@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Maths by Mme JULIA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #4b6cb7;
+            --secondary: #182848;
+            --accent: #ff6b6b;
+            --light: #f5f7fa;
+            --dark: #333;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --info: #3498db;
+            --sixieme: #3498db;
+            --cinquieme: #2ecc71;
+            --quatrieme: #e74c3c;
+            --troisieme: #f39c12;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .welcome-section h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .welcome-section p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .level-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .level-header {
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .sixieme .level-header { background-color: var(--sixieme); }
+        .cinquieme .level-header { background-color: var(--cinquieme); }
+        .quatrieme .level-header { background-color: var(--quatrieme); }
+        .troisieme .level-header { background-color: var(--troisieme); }
+        
+        .level-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .level-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        .quiz-container {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+        
+        .quiz-title {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .option:hover {
+            background-color: #e9ecef;
+        }
+        
+        .option input {
+            margin-right: 10px;
+        }
+        
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        
+        .submit-btn, .next-btn {
+            padding: 0.7rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover, .next-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        .score-display {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .result-feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .back-button:hover {
+            background-color: var(--secondary);
+        }
+        
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .theme-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .theme-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .theme-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .theme-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .levels-grid, .themes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .quiz-controls {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-square-root-alt"></i>
+            <span>Maths by Mme JULIA</span>
+        </div>
+        <h1>Mathématiques</h1>
+        <p class="subtitle">Quiz de la 6ème à la 3ème</p>
+    </header>
+    
+    <div class="container">
+        <!-- Page d'accueil avec les niveaux -->
+        <div id="home-page">
+            <div class="welcome-section">
+                <h2>Bienvenue sur le site de quiz de mathématiques</h2>
+                <p>Sélectionnez votre niveau pour accéder aux quiz correspondants</p>
+            </div>
+            
+            <div class="levels-grid">
+                <!-- Niveau 6ème -->
+                <div class="level-card sixieme" onclick="showThemes('sixieme')">
+                    <div class="level-header">
+                        <i class="fas fa-1"></i> 6ème
+                    </div>
+                    <div class="level-content">
+                        <p>Nombres et calculs, géométrie, grandeurs et mesures</p>
+                        <button class="btn">Commencer</button>
+                    </div>
+                </div>
+                
+                <!-- Niveau 5ème -->
+                <div class="level-card cinquieme" onclick="showThemes('cinquieme')">
+                    <div class="level-header">
+                        <i class="fas fa-2"></i> 5ème
+                    </div>
+                    <div class="level-content">
+                        <p>Calcul littéral, fractions, statistiques, proportions</p>
+                        <button class="btn">Commencer</button>
+                    </div>
+                </div>
+                
+                <!-- Niveau 4ème -->
+                <div class="level-card quatrieme" onclick="showThemes('quatrieme')">
+                    <div class="level-header">
+                        <i class="fas fa-3"></i> 4ème
+                    </div>
+                    <div class="level-content">
+                        <p>Pythagore, calcul algébrique, probabilités, fonctions</p>
+                        <button class="btn">Commencer</button>
+                    </div>
+                </div>
+                
+                <!-- Niveau 3ème -->
+                <div class="level-card troisieme" onclick="showThemes('troisieme')">
+                    <div class="level-header">
+                        <i class="fas fa-4"></i> 3ème
+                    </div>
+                    <div class="level-content">
+                        <p>Thalès, trigonométrie, équations, statistiques</p>
+                        <button class="btn">Commencer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page des thèmes pour la 6ème -->
+        <div id="themes-sixieme" class="hidden">
+            <button class="back-button" onclick="goBack()">← Retour</button>
+            <h2 class="quiz-title">Programme de 6ème</h2>
+            <div class="themes-grid">
+                <div class="theme-card" onclick="startQuiz('nombres_6eme')">
+                    <div class="theme-icon">🔢</div>
+                    <div class="theme-title">Nombres et calculs</div>
+                    <p>Nombres entiers, décimaux, opérations, problèmes</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('geometrie_6eme')">
+                    <div class="theme-icon">📐</div>
+                    <div class="theme-title">Géométrie</div>
+                    <p>Figures planes, symétrie, angles, périmètres</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('grandeurs_6eme')">
+                    <div class="theme-icon">📏</div>
+                    <div class="theme-title">Grandeurs et mesures</div>
+                    <p>Longueurs, aires, volumes, conversions</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('organisation_6eme')">
+                    <div class="theme-icon">📊</div>
+                    <div class="theme-title">Organisation de données</div>
+                    <p>Tableaux, graphiques, traitement de données</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page des thèmes pour la 5ème -->
+        <div id="themes-cinquieme" class="hidden">
+            <button class="back-button" onclick="goBack()">← Retour</button>
+            <h2 class="quiz-title">Programme de 5ème</h2>
+            <div class="themes-grid">
+                <div class="theme-card" onclick="startQuiz('nombres_5eme')">
+                    <div class="theme-icon">➗</div>
+                    <div class="theme-title">Nombres et calculs</div>
+                    <p>Nombres relatifs, fractions, calcul mental</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('litteral_5eme')">
+                    <div class="theme-icon">𝑥</div>
+                    <div class="theme-title">Calcul littéral</div>
+                    <p>Expressions algébriques, simplification</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('proportion_5eme')">
+                    <div class="theme-icon">↔️</div>
+                    <div class="theme-title">Proportionnalité</div>
+                    <p>Tableaux de proportionnalité, pourcentages</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('espace_5eme')">
+                    <div class="theme-icon">🔺</div>
+                    <div class="theme-title">Espace et géométrie</div>
+                    <p>Triangles, parallélogrammes, rotations</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page des thèmes pour la 4ème -->
+        <div id="themes-quatrieme" class="hidden">
+            <button class="back-button" onclick="goBack()">← Retour</button>
+            <h2 class="quiz-title">Programme de 4ème</h2>
+            <div class="themes-grid">
+                <div class="theme-card" onclick="startQuiz('pythagore_4eme')">
+                    <div class="theme-icon">△</div>
+                    <div class="theme-title">Théorème de Pythagore</div>
+                    <p>Calcul d'hypoténuse, réciproque du théorème</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('calcul_4eme')">
+                    <div class="theme-icon">𝑓(𝑥)</div>
+                    <div class="theme-title">Calcul algébrique</div>
+                    <p>Développement, factorisation, équations</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('probabilites_4eme')">
+                    <div class="theme-icon">🎲</div>
+                    <div class="theme-title">Probabilités</div>
+                    <p>Calcul de probabilités, expériences aléatoires</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('fonctions_4eme')">
+                    <div class="theme-icon">📈</div>
+                    <div class="theme-title">Fonctions</div>
+                    <p>Notion de fonction, représentations graphiques</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page des thèmes pour la 3ème -->
+        <div id="themes-troisieme" class="hidden">
+            <button class="back-button" onclick="goBack()">← Retour</button>
+            <h2 class="quiz-title">Programme de 3ème</h2>
+            <div class="themes-grid">
+                <div class="theme-card" onclick="startQuiz('thales_3eme')">
+                    <div class="theme-icon">∽</div>
+                    <div class="theme-title">Théorème de Thalès</div>
+                    <p>Configuration de Thalès, calculs de longueurs</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('trigonometrie_3eme')">
+                    <div class="theme-icon">sin</div>
+                    <div class="theme-title">Trigonométrie</div>
+                    <p>Cosinus, sinus, tangente, relations trigonométriques</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('equations_3eme')">
+                    <div class="theme-icon">=</div>
+                    <div class="theme-title">Équations</div>
+                    <p>Équations du 1er degré, systèmes d'équations</p>
+                </div>
+                
+                <div class="theme-card" onclick="startQuiz('statistiques_3eme')">
+                    <div class="theme-icon">📉</div>
+                    <div class="theme-title">Statistiques</div>
+                    <p>Moyenne, médiane, étendue, représentations</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page de quiz (cachée initialement) -->
+        <div id="quiz-page" class="hidden">
+            <button class="back-button" onclick="goBackToThemes()">← Retour aux thèmes</button>
+            <h2 id="quiz-title" class="quiz-title">Quiz</h2>
+            
+            <div class="progress-bar">
+                <div class="progress" id="quiz-progress"></div>
+            </div>
+            
+            <div class="score-display" id="score-display">Score: 0/0</div>
+            
+            <div class="quiz-container">
+                <div class="question" id="question"></div>
+                
+                <div class="options-container" id="options-container">
+                    <!-- Les options seront générées ici -->
+                </div>
+                
+                <div class="result-feedback hidden" id="result-feedback"></div>
+                
+                <div class="quiz-controls">
+                    <button class="submit-btn hidden" id="submit-btn" onclick="checkAnswer()">Soumettre</button>
+                    <button class="next-btn hidden" id="next-btn" onclick="nextQuestion()">Question suivante</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Maths by Mme JULIA - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        // Variables globales pour le quiz
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let currentTheme = '';
+        let currentLevel = '';
+        
+        // Base de données des questions par thème
+        const questionsDatabase = {
+            // 6ème
+            nombres_6eme: [
+                {
+                    question: "Quel est le résultat de 45 + 32?",
+                    options: ["77", "67", "87", "57"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Combien font 128 - 57?",
+                    options: ["71", "61", "81", "91"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est le résultat de 14 × 6?",
+                    options: ["84", "64", "74", "94"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Combien font 81 ÷ 9?",
+                    options: ["9", "8", "7", "10"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Marie a 25 billes. Elle en gagne 12 puis en perd 7. Combien a-t-elle de billes maintenant?",
+                    options: ["30", "25", "35", "20"],
+                    correctIndex: 0
+                }
+            ],
+            geometrie_6eme: [
+                {
+                    question: "Quelle figure a 3 côtés?",
+                    options: ["Triangle", "Carré", "Rectangle", "Cercle"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle figure a 4 côtés égaux et 4 angles droits?",
+                    options: ["Carré", "Rectangle", "Losange", "Triangle"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la figure ronde sans angles?",
+                    options: ["Cercle", "Ovale", "Sphère", "Disque"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est le périmètre d'un rectangle de longueur 8 cm et de largeur 5 cm?",
+                    options: ["26 cm", "30 cm", "20 cm", "40 cm"],
+                    correctIndex: 0
+                }
+            ],
+            grandeurs_6eme: [
+                {
+                    question: "Combien de millimètres y a-t-il dans 1 centimètre?",
+                    options: ["10 mm", "100 mm", "1000 mm", "5 mm"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Combien de centimètres y a-t-il dans 1 mètre?",
+                    options: ["100 cm", "10 cm", "1000 cm", "50 cm"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle unité utilise-t-on pour mesurer le poids?",
+                    options: ["Gramme", "Litre", "Mètre", "Seconde"],
+                    correctIndex: 0
+                }
+            ],
+            organisation_6eme: [
+                {
+                    question: "Quel type de graphique est le plus adapté pour représenter des proportions?",
+                    options: ["Diagramme circulaire", "Diagramme en bâtons", "Histogramme", "Graphique linéaire"],
+                    correctIndex: 0
+                }
+            ],
+            
+            // 5ème
+            nombres_5eme: [
+                {
+                    question: "Quel est le résultat de (-5) + (-3)?",
+                    options: ["-8", "8", "2", "-2"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est le résultat de 7 - (-2)?",
+                    options: ["9", "5", "-5", "-9"],
+                    correctIndex: 0
+                }
+            ],
+            litteral_5eme: [
+                {
+                    question: "Simplifie l'expression: 2x + 3x",
+                    options: ["5x", "6x", "5x²", "6x²"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Développe: 3(x + 4)",
+                    options: ["3x + 12", "3x + 4", "x + 12", "3x + 7"],
+                    correctIndex: 0
+                }
+            ],
+            proportion_5eme: [
+                {
+                    question: "Si 5 cahiers coûtent 7,50 €, combien coûtent 3 cahiers?",
+                    options: ["4,50 €", "5,00 €", "4,00 €", "5,50 €"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Un article coûte 80 €. Il est soldé à -20%. Quel est son nouveau prix?",
+                    options: ["64 €", "60 €", "72 €", "68 €"],
+                    correctIndex: 0
+                }
+            ],
+            espace_5eme: [
+                {
+                    question: "Quelle est la somme des angles d'un triangle?",
+                    options: ["180°", "90°", "360°", "270°"],
+                    correctIndex: 0
+                }
+            ],
+            
+            // 4ème
+            pythagore_4eme: [
+                {
+                    question: "Dans un triangle rectangle, si a=3 et b=4, quelle est la longueur de l'hypoténuse c?",
+                    options: ["5", "7", "6", "8"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Un triangle a des côtés de longueurs 6 cm, 8 cm et 10 cm. Est-il rectangle?",
+                    options: ["Oui", "Non", "On ne peut pas savoir", "Seulement si c'est un triangle isocèle"],
+                    correctIndex: 0
+                }
+            ],
+            calcul_4eme: [
+                {
+                    question: "Développe: 2(x + 3)",
+                    options: ["2x + 6", "2x + 3", "x + 6", "2x + 5"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Factorise: 4x + 6",
+                    options: ["2(2x + 3)", "4(x + 6)", "2(2x + 6)", "4(x + 1.5)"],
+                    correctIndex: 0
+                }
+            ],
+            probabilites_4eme: [
+                {
+                    question: "Quelle est la probabilité de tirer un as dans un jeu de 52 cartes?",
+                    options: ["1/13", "1/52", "4/52", "1/4"],
+                    correctIndex: 0
+                }
+            ],
+            fonctions_4eme: [
+                {
+                    question: "Quelle est la représentation graphique d'une fonction affine?",
+                    options: ["Une droite", "Une parabole", "Une hyperbole", "Une courbe quelconque"],
+                    correctIndex: 0
+                }
+            ],
+            
+            // 3ème
+            thales_3eme: [
+                {
+                    question: "Le théorème de Thalès s'applique dans quelle configuration?",
+                    options: ["Des droites parallèles coupant deux sécantes", "Un triangle rectangle", "Un triangle équilatéral", "Un cercle"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si AB/AC = AD/AE et si (BD) et (CE) sont parallèles, alors:",
+                    options: ["AB/AC = BD/CE", "AB/AD = AC/AE", "AB/CE = AC/BD", "AB/BD = AC/CE"],
+                    correctIndex: 0
+                }
+            ],
+            trigonometrie_3eme: [
+                {
+                    question: "Dans un triangle rectangle, le cosinus d'un angle aigu est égal à:",
+                    options: ["Adjacent/Hypoténuse", "Opposé/Hypoténuse", "Opposé/Adjacent", "Adjacent/Opposé"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la valeur de cos(0°)?",
+                    options: ["1", "0", "0.5", "√2/2"],
+                    correctIndex: 0
+                }
+            ],
+            equations_3eme: [
+                {
+                    question: "Quelle est la solution de l'équation 2x + 3 = 7?",
+                    options: ["x = 2", "x = 3", "x = 4", "x = 5"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Résoudre le système: {2x + y = 5; x - y = 1}",
+                    options: ["x = 2, y = 1", "x = 3, y = -1", "x = 1, y = 3", "x = 2, y = 2"],
+                    correctIndex: 0
+                }
+            ],
+            statistiques_3eme: [
+                {
+                    question: "Quelle mesure de tendance centrale est la plus affectée par les valeurs extrêmes?",
+                    options: ["La moyenne", "La médiane", "Le mode", "L'étendue"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la médiane de la série: 2, 3, 5, 7, 8?",
+                    options: ["5", "4", "5.5", "3"],
+                    correctIndex: 0
+                }
+            ]
+        };
+        
+        // Fonction pour afficher les thèmes d'un niveau
+        function showThemes(level) {
+            currentLevel = level;
+            
+            // Cacher la page d'accueil
+            document.getElementById('home-page').classList.add('hidden');
+            
+            // Afficher la page des thèmes du niveau sélectionné
+            document.getElementById('themes-' + level).classList.remove('hidden');
+        }
+        
+        // Fonction pour revenir à la page d'accueil
+        function goBack() {
+            // Cacher toutes les pages de thèmes
+            document.querySelectorAll('[id^="themes-"]').forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Cacher la page de quiz
+            document.getElementById('quiz-page').classList.add('hidden');
+            
+            // Afficher la page d'accueil
+            document.getElementById('home-page').classList.remove('hidden');
+        }
+        
+        // Fonction pour revenir aux thèmes du niveau
+        function goBackToThemes() {
+            // Cacher la page de quiz
+            document.getElementById('quiz-page').classList.add('hidden');
+            
+            // Afficher la page des thèmes du niveau
+            document.getElementById('themes-' + currentLevel).classList.remove('hidden');
+        }
+        
+        // Fonction pour démarrer un quiz
+        function startQuiz(theme) {
+            currentTheme = theme;
+            score = 0;
+            currentQuestionIndex = 0;
+            
+            // Cacher la page des thèmes
+            document.getElementById('themes-' + currentLevel).classList.add('hidden');
+            
+            // Obtenir les questions pour ce thème
+            currentQuestions = [...questionsDatabase[theme]];
+            
+            // Mélanger aléatoirement les questions
+            shuffleArray(currentQuestions);
+            
+            // Limiter à 5 questions par quiz
+            if (currentQuestions.length > 5) {
+                currentQuestions = currentQuestions.slice(0, 5);
+            }
+            
+            // Mettre à jour le titre du quiz
+            document.getElementById('quiz-title').textContent = getThemeTitle(theme) + " - Quiz";
+            
+            // Réinitialiser l'affichage du score
+            document.getElementById('score-display').textContent = `Score: 0/${currentQuestions.length}`;
+            
+            // Mettre à jour la barre de progression
+            updateProgressBar();
+            
+            // Afficher la page de quiz
+            document.getElementById('quiz-page').classList.remove('hidden');
+            
+            // Afficher la première question
+            showQuestion();
+        }
+        
+        // Fonction pour obtenir le titre du thème
+        function getThemeTitle(theme) {
+            const themeTitles = {
+                'nombres_6eme': 'Nombres et calculs - 6ème',
+                'geometrie_6eme': 'Géométrie - 6ème',
+                'grandeurs_6eme': 'Grandeurs et mesures - 6ème',
+                'organisation_6eme': 'Organisation de données - 6ème',
+                'nombres_5eme': 'Nombres et calculs - 5ème',
+                'litteral_5eme': 'Calcul littéral - 5ème',
+                'proportion_5eme': 'Proportionnalité - 5ème',
+                'espace_5eme': 'Espace et géométrie - 5ème',
+                'pythagore_4eme': 'Théorème de Pythagore - 4ème',
+                'calcul_4eme': 'Calcul algébrique - 4ème',
+                'probabilites_4eme': 'Probabilités - 4ème',
+                'fonctions_4eme': 'Fonctions - 4ème',
+                'thales_3eme': 'Théorème de Thalès - 3ème',
+                'trigonometrie_3eme': 'Trigonométrie - 3ème',
+                'equations_3eme': 'Équations - 3ème',
+                'statistiques_3eme': 'Statistiques - 3ème'
+            };
+            
+            return themeTitles[theme] || 'Quiz';
+        }
+        
+        // Fonction pour mélanger un tableau (aléatoire)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        // Fonction pour afficher une question
+        function showQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            
+            // Afficher la question
+            document.getElementById('question').textContent = question.question;
+            
+            // Générer les options
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            // Mélanger les options pour qu'elles n'apparaissent pas toujours dans le même ordre
+            const optionIndices = [0, 1, 2, 3];
+            shuffleArray(optionIndices);
+            
+            optionIndices.forEach(index => {
+                const option = document.createElement('div');
+                option.className = 'option';
+                
+                const input = document.createElement('input');
+                input.type = 'radio';
+                input.name = 'quiz-option';
+                input.value = index;
+                input.id = `option-${index}`;
+                
+                const label = document.createElement('label');
+                label.htmlFor = `option-${index}`;
+                label.textContent = question.options[index];
+                
+                option.appendChild(input);
+                option.appendChild(label);
+                
+                optionsContainer.appendChild(option);
+            });
+            
+            // Cacher le feedback
+            document.getElementById('result-feedback').classList.add('hidden');
+            
+            // Afficher le bouton Soumettre
+            document.getElementById('submit-btn').classList.remove('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+            
+            // Désélectionner toute option précédente
+            const options = document.querySelectorAll('input[name="quiz-option"]');
+            options.forEach(option => {
+                option.checked = false;
+            });
+        }
+        
+        // Fonction pour vérifier la réponse
+        function checkAnswer() {
+            const selectedOption = document.querySelector('input[name="quiz-option"]:checked');
+            
+            if (!selectedOption) {
+                alert('Veuillez sélectionner une réponse');
+                return;
+            }
+            
+            const selectedIndex = parseInt(selectedOption.value);
+            const correctIndex = currentQuestions[currentQuestionIndex].correctIndex;
+            const feedback = document.getElementById('result-feedback');
+            
+            if (selectedIndex === correctIndex) {
+                feedback.textContent = 'Correct!';
+                feedback.className = 'result-feedback correct';
+                score++;
+            } else {
+                feedback.textContent = `Incorrect. La bonne réponse était: ${currentQuestions[currentQuestionIndex].options[correctIndex]}`;
+                feedback.className = 'result-feedback incorrect';
+            }
+            
+            feedback.classList.remove('hidden');
+            
+            // Mettre à jour l'affichage du score
+            document.getElementById('score-display').textContent = `Score: ${score}/${currentQuestions.length}`;
+            
+            // Afficher le bouton Question suivante
+            document.getElementById('submit-btn').classList.add('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+        
+        // Fonction pour passer à la question suivante
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < currentQuestions.length) {
+                showQuestion();
+                updateProgressBar();
+            } else {
+                // Quiz terminé
+                finishQuiz();
+            }
+        }
+        
+        // Fonction pour terminer le quiz
+        function finishQuiz() {
+            const percentage = (score / currentQuestions.length) * 100;
+            
+            document.getElementById('question').textContent = 'Quiz terminé!';
+            document.getElementById('options-container').innerHTML = '';
+            
+            const feedback = document.getElementById('result-feedback');
+            feedback.textContent = `Votre score final: ${score}/${currentQuestions.length} (${percentage.toFixed(0)}%)`;
+            
+            if (percentage >= 70) {
+                feedback.className = 'result-feedback correct';
+                feedback.textContent += ' - Excellent travail!';
+            } else {
+                feedback.className = 'result-feedback incorrect';
+                feedback.textContent += ' - Continuez à vous exercer!';
+            }
+            
+            feedback.classList.remove('hidden');
+            
+            document.getElementById('submit-btn').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+            
+            // Ajouter un bouton pour recommencer
+            const restartBtn = document.createElement('button');
+            restartBtn.textContent = 'Recommencer le quiz';
+            restartBtn.className = 'submit-btn';
+            restartBtn.onclick = function() {
+                startQuiz(currentTheme);
+            };
+            
+            document.querySelector('.quiz-controls').appendChild(restartBtn);
+        }
+        
+        // Fonction pour mettre à jour la barre de progression
+        function updateProgressBar() {
+            const progress = ((currentQuestionIndex + 1) / currentQuestions.length) * 100;
+            document.getElementById('quiz-progress').style.width = `${progress}%`;
+        }
+    </script>
+</body>
+</html>
