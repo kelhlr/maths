@@ -568,7 +568,7 @@
         let currentTheme = '';
         let currentLevel = '';
         
-        // Base de données des questions par thème
+        // Base de données des questions par thème - COMPLÉTÉE avec 10 questions par sous-domaine
         const questionsDatabase = {
             // 6ème
             nombres_6eme: [
@@ -596,6 +596,31 @@
                     question: "Marie a 25 billes. Elle en gagne 12 puis en perd 7. Combien a-t-elle de billes maintenant?",
                     options: ["30", "25", "35", "20"],
                     correctIndex: 0
+                },
+                {
+                    question: "Quel est le double de 24?",
+                    options: ["48", "12", "26", "44"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est le triple de 15?",
+                    options: ["45", "30", "18", "35"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est le quart de 100?",
+                    options: ["25", "50", "20", "40"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Combien font 7 × 8?",
+                    options: ["56", "54", "64", "58"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel nombre est divisible par 2, 3 et 5?",
+                    options: ["30", "15", "20", "25"],
+                    correctIndex: 0
                 }
             ],
             geometrie_6eme: [
@@ -618,6 +643,36 @@
                     question: "Quel est le périmètre d'un rectangle de longueur 8 cm et de largeur 5 cm?",
                     options: ["26 cm", "30 cm", "20 cm", "40 cm"],
                     correctIndex: 0
+                },
+                {
+                    question: "Combien de côtés a un hexagone?",
+                    options: ["6", "5", "7", "8"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est l'aire d'un carré de 5 cm de côté?",
+                    options: ["25 cm²", "20 cm²", "10 cm²", "15 cm²"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Combien de sommets a un cube?",
+                    options: ["8", "6", "12", "4"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la nature d'un triangle dont les trois côtés sont égaux?",
+                    options: ["Équilatéral", "Isocèle", "Rectangle", "Scalène"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Combien d'axes de symétrie a un rectangle?",
+                    options: ["2", "1", "4", "0"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est le nom d'un polygone à 5 côtés?",
+                    options: ["Pentagone", "Hexagone", "Carré", "Octogone"],
+                    correctIndex: 0
                 }
             ],
             grandeurs_6eme: [
@@ -635,12 +690,92 @@
                     question: "Quelle unité utilise-t-on pour mesurer le poids?",
                     options: ["Gramme", "Litre", "Mètre", "Seconde"],
                     correctIndex: 0
+                },
+                {
+                    question: "Combien de minutes y a-t-il dans 2 heures?",
+                    options: ["120 minutes", "60 minutes", "100 minutes", "200 minutes"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est l'unité principale de mesure des volumes?",
+                    options: ["Litre", "Gramme", "Mètre", "Seconde"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Combien de grammes y a-t-il dans 1 kilogramme?",
+                    options: ["1000 g", "100 g", "500 g", "10 g"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Combien de mètres y a-t-il dans 1 kilomètre?",
+                    options: ["1000 m", "100 m", "500 m", "10 m"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle unité utilise-t-on pour mesurer des angles?",
+                    options: ["Degré", "Mètre", "Litre", "Gramme"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Combien de secondes y a-t-il dans 3 minutes?",
+                    options: ["180 s", "60 s", "120 s", "300 s"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est l'unité de mesure de l'aire?",
+                    options: ["m²", "m", "m³", "kg"],
+                    correctIndex: 0
                 }
             ],
             organisation_6eme: [
                 {
                     question: "Quel type de graphique est le plus adapté pour représenter des proportions?",
                     options: ["Diagramme circulaire", "Diagramme en bâtons", "Histogramme", "Graphique linéaire"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Dans un tableau de données, que trouve-t-on généralement dans la première colonne?",
+                    options: ["Les catégories", "Les valeurs numériques", "Le titre", "La légende"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel type de représentation permet de visualiser l'évolution d'une grandeur dans le temps?",
+                    options: ["Graphique linéaire", "Diagramme circulaire", "Diagramme en barres", "Tableau à double entrée"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si 15 élèves sur 30 aiment les mathématiques, quel pourcentage cela représente-t-il?",
+                    options: ["50%", "30%", "15%", "45%"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Qu'est-ce qu'une moyenne?",
+                    options: ["La somme des valeurs divisée par leur nombre", "La valeur du milieu", "La valeur la plus fréquente", "La différence entre les valeurs extrêmes"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Dans une série de notes: 10, 12, 14, 10, 16, quelle est la médiane?",
+                    options: ["12", "10", "14", "11"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la moyenne des nombres 5, 7, 9 et 11?",
+                    options: ["8", "7", "9", "10"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est l'étendue de la série: 3, 5, 7, 9, 11?",
+                    options: ["8", "7", "6", "5"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Dans un diagramme en barres, que représente la hauteur des barres?",
+                    options: ["La valeur des données", "La couleur des données", "Le temps", "La fréquence"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si 40% des élèves d'une classe de 25 sont des filles, combien y a-t-il de filles?",
+                    options: ["10", "12", "15", "8"],
                     correctIndex: 0
                 }
             ],
@@ -656,6 +791,46 @@
                     question: "Quel est le résultat de 7 - (-2)?",
                     options: ["9", "5", "-5", "-9"],
                     correctIndex: 0
+                },
+                {
+                    question: "Quel est le résultat de (-4) × 6?",
+                    options: ["-24", "24", "10", "-10"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est le résultat de (-15) ÷ (-3)?",
+                    options: ["5", "-5", "3", "-3"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est l'opposé de -7?",
+                    options: ["7", "-7", "0", "1/7"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est le résultat de 3/5 + 2/5?",
+                    options: ["1", "5/10", "6/5", "5/5"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est le résultat de 2/3 × 4/5?",
+                    options: ["8/15", "6/8", "8/8", "6/15"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est le résultat de 3/4 ÷ 2?",
+                    options: ["3/8", "5/4", "6/4", "3/2"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle fraction est équivalente à 0,75?",
+                    options: ["3/4", "1/4", "2/3", "4/5"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel est l'inverse de 2/3?",
+                    options: ["3/2", "2/3", "-2/3", "-3/2"],
+                    correctIndex: 0
                 }
             ],
             litteral_5eme: [
@@ -667,6 +842,46 @@
                 {
                     question: "Développe: 3(x + 4)",
                     options: ["3x + 12", "3x + 4", "x + 12", "3x + 7"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Factorise: 5a + 10",
+                    options: ["5(a + 2)", "5(a + 10)", "a(5 + 10)", "5a(1 + 2)"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Calcule la valeur de 3y + 7 quand y = 2",
+                    options: ["13", "10", "27", "23"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle expression est égale à 2(x - 3)?",
+                    options: ["2x - 6", "2x - 3", "x - 6", "2x + 6"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Simplifie: 4a - 2b + a + 3b",
+                    options: ["5a + b", "4a + b", "5a + 5b", "4a + 3b"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Développe: 2x(3x - 4)",
+                    options: ["6x² - 8x", "6x - 8x", "6x² - 4", "5x² - 8x"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Factorise: 12x + 18",
+                    options: ["6(2x + 3)", "3(4x + 6)", "2(6x + 9)", "12(x + 6)"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si a = 3 et b = 5, que vaut 2a + 3b?",
+                    options: ["21", "19", "16", "25"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle expression est équivalente à 3x - 2y + x + 4y?",
+                    options: ["4x + 2y", "4x - 2y", "3x + 2y", "2x + 4y"],
                     correctIndex: 0
                 }
             ],
@@ -680,12 +895,97 @@
                     question: "Un article coûte 80 €. Il est soldé à -20%. Quel est son nouveau prix?",
                     options: ["64 €", "60 €", "72 €", "68 €"],
                     correctIndex: 0
+                },
+                {
+                    question: "Si 4 kg de pommes coûtent 10 €, combien coûtent 6 kg?",
+                    options: ["15 €", "12 €", "18 €", "20 €"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Un véhicule consomme 6 L aux 100 km. Combien consomme-t-il pour 250 km?",
+                    options: ["15 L", "12 L", "18 L", "20 L"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Sur une carte à l'échelle 1:25000, 4 cm représentent quelle distance en réalité?",
+                    options: ["1 km", "2 km", "500 m", "1,5 km"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Un commerçant augmente ses prix de 15%. Quel coefficient multiplicateur applique-t-il?",
+                    options: ["1,15", "0,85", "1,5", "0,15"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si 8 ouvriers mettent 10 jours pour faire un travail, combien de temps mettraient 5 ouvriers?",
+                    options: ["16 jours", "12 jours", "6,25 jours", "8 jours"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quel pourcentage représente 3/4?",
+                    options: ["75%", "25%", "50%", "30%"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Un article coûte 120 € après une augmentation de 20%. Quel était son prix avant augmentation?",
+                    options: ["100 €", "96 €", "110 €", "115 €"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si 5 mètres de tissu coûtent 45 €, combien coûtent 7 mètres?",
+                    options: ["63 €", "55 €", "60 €", "65 €"],
+                    correctIndex: 0
                 }
             ],
             espace_5eme: [
                 {
                     question: "Quelle est la somme des angles d'un triangle?",
                     options: ["180°", "90°", "360°", "270°"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle propriété caractérise un losange?",
+                    options: ["Ses 4 côtés sont égaux", "Ses 4 angles sont droits", "Il a 3 côtés égaux", "Ses diagonales sont égales"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Combien de axes de symétrie a un carré?",
+                    options: ["4", "2", "1", "0"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle transformation géométrique conserve les longueurs?",
+                    options: ["Translation", "Homothétie", "Réduction", "Agrandissement"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la nature d'un triangle qui a deux côtés de même longueur?",
+                    options: ["Triangle isocèle", "Triangle équilatéral", "Triangle rectangle", "Triangle quelconque"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la propriété des diagonales d'un rectangle?",
+                    options: ["Elles sont de même longueur", "Elles sont perpendiculaires", "Elles sont de longueurs différentes", "Elles se coupent en leur milieu"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Combien de faces a un cube?",
+                    options: ["6", "8", "12", "4"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la nature d'un quadrilatère qui a ses côtés opposés parallèles deux à deux?",
+                    options: ["Parallélogramme", "Trapèze", "Losange", "Carré"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la mesure d'un angle droit?",
+                    options: ["90°", "180°", "45°", "360°"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la propriété des diagonales d'un losange?",
+                    options: ["Elles sont perpendiculaires", "Elles sont égales", "Elles sont parallèles", "Elles se coupent en dehors du losange"],
                     correctIndex: 0
                 }
             ],
@@ -701,6 +1001,46 @@
                     question: "Un triangle a des côtés de longueurs 6 cm, 8 cm et 10 cm. Est-il rectangle?",
                     options: ["Oui", "Non", "On ne peut pas savoir", "Seulement si c'est un triangle isocèle"],
                     correctIndex: 0
+                },
+                {
+                    question: "Quelle est la formule du théorème de Pythagore?",
+                    options: ["a² + b² = c²", "a + b = c", "a² × b² = c²", "a × b = c"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Dans un triangle rectangle, l'hypoténuse est toujours:",
+                    options: ["Le côté le plus long", "Le côté le plus court", "Un côté quelconque", "La hauteur"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si un triangle a des côtés de 5 cm, 12 cm et 13 cm, est-il rectangle?",
+                    options: ["Oui", "Non", "On ne peut pas savoir", "Seulement si l'angle droit est entre 5 et 12"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Dans un triangle rectangle, si l'hypoténuse mesure 10 cm et un côté 6 cm, quelle est la longueur de l'autre côté?",
+                    options: ["8 cm", "7 cm", "9 cm", "11 cm"],
+                    correctIndex: 0
+                },
+                {
+                    question: "La réciproque du théorème de Pythagore permet de:",
+                    options: ["Démontrer qu'un triangle est rectangle", "Calculer l'aire d'un triangle", "Calculer les angles d'un triangle", "Démontrer qu'un triangle est isocèle"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Dans un triangle rectangle, les côtés adjacents à l'angle droit s'appellent:",
+                    options: ["Les cathètes", "Les hypoténuses", "Les bases", "Les côtés opposés"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si les côtés d'un triangle vérifient a² + b² < c², alors le triangle est:",
+                    options: ["Obtusangle", "Rectangle", "Acutangle", "Isocèle"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la longueur de la diagonale d'un rectangle de dimensions 6 cm et 8 cm?",
+                    options: ["10 cm", "12 cm", "14 cm", "9 cm"],
+                    correctIndex: 0
                 }
             ],
             calcul_4eme: [
@@ -713,6 +1053,46 @@
                     question: "Factorise: 4x + 6",
                     options: ["2(2x + 3)", "4(x + 6)", "2(2x + 6)", "4(x + 1.5)"],
                     correctIndex: 0
+                },
+                {
+                    question: "Résous l'équation: 3x + 5 = 14",
+                    options: ["x = 3", "x = 4", "x = 5", "x = 6"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Développe: (x + 2)(x + 3)",
+                    options: ["x² + 5x + 6", "x² + 6x + 5", "x² + 5x + 5", "x² + 6x + 6"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Factorise: x² + 6x + 9",
+                    options: ["(x + 3)²", "(x + 6)(x + 9)", "(x + 3)(x + 6)", "(x + 2)(x + 4)"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Résous l'équation: 2x - 7 = 5",
+                    options: ["x = 6", "x = 5", "x = 7", "x = 4"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Développe et réduis: (2x + 3)(x - 4)",
+                    options: ["2x² - 5x - 12", "2x² - 11x - 12", "2x² + 5x - 12", "2x² - 5x + 12"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Factorise: 9x² - 25",
+                    options: ["(3x - 5)(3x + 5)", "(9x - 5)(x + 5)", "(3x - 25)(3x + 1)", "(9x - 25)(x + 1)"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Résous l'équation: 4(x - 3) = 20",
+                    options: ["x = 8", "x = 5", "x = 7", "x = 6"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Développe: (x - 5)²",
+                    options: ["x² - 10x + 25", "x² - 25", "x² + 10x + 25", "x² - 5x + 25"],
+                    correctIndex: 0
                 }
             ],
             probabilites_4eme: [
@@ -720,12 +1100,102 @@
                     question: "Quelle est la probabilité de tirer un as dans un jeu de 52 cartes?",
                     options: ["1/13", "1/52", "4/52", "1/4"],
                     correctIndex: 0
+                },
+                {
+                    question: "Quelle est la probabilité d'obtenir 'pile' en lançant une pièce équilibrée?",
+                    options: ["1/2", "1/4", "1", "0"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si on lance un dé à 6 faces, quelle est la probabilité d'obtenir un nombre pair?",
+                    options: ["1/2", "1/6", "1/3", "2/3"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la probabilité d'un événement certain?",
+                    options: ["1", "0", "1/2", "2"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Un sac contient 3 boules rouges et 2 boules bleues. Quelle est la probabilité de tirer une boule bleue?",
+                    options: ["2/5", "3/5", "1/2", "2/3"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la probabilité d'un événement impossible?",
+                    options: ["0", "1", "1/2", "2"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si on lance deux dés, quelle est la probabilité d'obtenir un double?",
+                    options: ["1/6", "1/12", "1/36", "1/3"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Une urne contient 5 boules blanches et 3 boules noires. Quelle est la probabilité de tirer une boule noire?",
+                    options: ["3/8", "5/8", "1/2", "3/5"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la probabilité d'obtenir au moins une fois 'face' en lançant deux fois une pièce?",
+                    options: ["3/4", "1/2", "1/4", "1"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si la probabilité qu'il pleuve demain est de 0,3, quelle est la probabilité qu'il ne pleuve pas?",
+                    options: ["0,7", "0,3", "0,5", "0,2"],
+                    correctIndex: 0
                 }
             ],
             fonctions_4eme: [
                 {
                     question: "Quelle est la représentation graphique d'une fonction affine?",
                     options: ["Une droite", "Une parabole", "Une hyperbole", "Une courbe quelconque"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si f(x) = 2x + 3, quelle est l'image de 4?",
+                    options: ["11", "10", "12", "14"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la forme générale d'une fonction affine?",
+                    options: ["f(x) = ax + b", "f(x) = ax² + bx + c", "f(x) = k/x", "f(x) = a^x"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si f(x) = -3x + 2, quel est le coefficient directeur?",
+                    options: ["-3", "2", "3", "-2"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est l'ordonnée à l'origine de la fonction f(x) = 4x - 5?",
+                    options: ["-5", "4", "5", "-4"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si f(x) = x², quelle est l'image de -3?",
+                    options: ["9", "-9", "6", "-6"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est l'antécédent de 7 par la fonction f(x) = 2x - 1?",
+                    options: ["4", "3", "6", "5"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la représentation graphique de la fonction f(x) = 3?",
+                    options: ["Une droite horizontale", "Une droite verticale", "Une parabole", "Une droite croissante"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si f(x) = -2x + 5, quelle est l'image de -1?",
+                    options: ["7", "3", "-7", "-3"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle fonction est linéaire?",
+                    options: ["f(x) = 3x", "f(x) = 2x + 1", "f(x) = x²", "f(x) = 5"],
                     correctIndex: 0
                 }
             ],
@@ -741,6 +1211,46 @@
                     question: "Si AB/AC = AD/AE et si (BD) et (CE) sont parallèles, alors:",
                     options: ["AB/AC = BD/CE", "AB/AD = AC/AE", "AB/CE = AC/BD", "AB/BD = AC/CE"],
                     correctIndex: 0
+                },
+                {
+                    question: "Dans la configuration de Thalès, si AM/AB = 2/3 et MN = 6 cm, quelle est la longueur BC?",
+                    options: ["9 cm", "6 cm", "4 cm", "12 cm"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quand peut-on appliquer le théorème de Thalès?",
+                    options: ["Quand on a deux droites parallèles coupées par deux sécantes", "Dans tout triangle", "Uniquement dans les triangles rectangles", "Uniquement dans les triangles isocèles"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si dans une configuration de Thalès, on a AB/AC = 1/2 et BC = 9 cm, quelle est la longueur MN?",
+                    options: ["4,5 cm", "9 cm", "18 cm", "6 cm"],
+                    correctIndex: 0
+                },
+                {
+                    question: "La réciproque du théorème de Thalès permet de:",
+                    options: ["Démontrer que deux droites sont parallèles", "Calculer des longueurs", "Calculer des angles", "Démontrer qu'un triangle est rectangle"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Dans la configuration de Thalès, si AM/AB = AN/AC et si les points A, M, B et A, N, C sont alignés, alors:",
+                    options: ["(MN) est parallèle à (BC)", "Le triangle est rectangle", "Le triangle est isocèle", "Les droites sont perpendiculaires"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si AD/AB = AE/AC = 2/3 et DE = 8 cm, quelle est la longueur BC?",
+                    options: ["12 cm", "8 cm", "6 cm", "10 cm"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Dans quel cas ne peut-on PAS appliquer le théorème de Thalès?",
+                    options: ["Quand les droites ne sont pas parallèles", "Quand le triangle est rectangle", "Quand le triangle est isocèle", "Quand on connaît deux longueurs"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si AB/AC = 3/5 et BC = 12 cm, quelle est la longueur MN?",
+                    options: ["7,2 cm", "12 cm", "20 cm", "9 cm"],
+                    correctIndex: 0
                 }
             ],
             trigonometrie_3eme: [
@@ -752,6 +1262,46 @@
                 {
                     question: "Quelle est la valeur de cos(0°)?",
                     options: ["1", "0", "0.5", "√2/2"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Dans un triangle rectangle, si cos(α) = 0,6 et hypoténuse = 10 cm, quelle est la longueur du côté adjacent?",
+                    options: ["6 cm", "8 cm", "10 cm", "4 cm"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la valeur de sin(90°)?",
+                    options: ["1", "0", "0.5", "√2/2"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la formule de la tangente?",
+                    options: ["Opposé/Adjacent", "Adjacent/Opposé", "Opposé/Hypoténuse", "Adjacent/Hypoténuse"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si dans un triangle rectangle, l'angle α = 30° et le côté opposé = 5 cm, quelle est la longueur de l'hypoténuse?",
+                    options: ["10 cm", "5 cm", "8,66 cm", "2,5 cm"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la valeur de tan(45°)?",
+                    options: ["1", "0", "√3", "√3/3"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Dans un triangle rectangle, si sin(α) = 0,8 et hypoténuse = 15 cm, quelle est la longueur du côté opposé?",
+                    options: ["12 cm", "10 cm", "9 cm", "15 cm"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la relation trigonométrique fondamentale?",
+                    options: ["sin²α + cos²α = 1", "sinα + cosα = 1", "tanα = sinα × cosα", "sinα = 1/cosα"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si cos(α) = 0,8 et le côté adjacent = 12 cm, quelle est la longueur de l'hypoténuse?",
+                    options: ["15 cm", "12 cm", "9,6 cm", "20 cm"],
                     correctIndex: 0
                 }
             ],
@@ -765,6 +1315,46 @@
                     question: "Résoudre le système: {2x + y = 5; x - y = 1}",
                     options: ["x = 2, y = 1", "x = 3, y = -1", "x = 1, y = 3", "x = 2, y = 2"],
                     correctIndex: 0
+                },
+                {
+                    question: "Résous l'équation: 3(x - 4) = 15",
+                    options: ["x = 9", "x = 7", "x = 5", "x = 11"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Résous l'équation: x² - 9 = 0",
+                    options: ["x = 3 ou x = -3", "x = 9", "x = 3", "x = -3"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Résous l'inéquation: 2x - 5 < 7",
+                    options: ["x < 6", "x > 6", "x < 1", "x > 1"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Résous le système: {3x + 2y = 12; x - y = 1}",
+                    options: ["x = 2, y = 1", "x = 3, y = 2", "x = 4, y = 3", "x = 2, y = 3"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Résous l'équation: 4x - 7 = 2x + 5",
+                    options: ["x = 6", "x = 4", "x = 5", "x = 7"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Résous l'équation: (x + 3)(2x - 5) = 0",
+                    options: ["x = -3 ou x = 2,5", "x = 3 ou x = -2,5", "x = -3 ou x = -2,5", "x = 3 ou x = 2,5"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Résous l'inéquation: -3x + 2 ≥ 8",
+                    options: ["x ≤ -2", "x ≥ -2", "x ≤ 2", "x ≥ 2"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Résous l'équation: 5x/2 + 3 = 18",
+                    options: ["x = 6", "x = 5", "x = 7", "x = 8"],
+                    correctIndex: 0
                 }
             ],
             statistiques_3eme: [
@@ -776,6 +1366,46 @@
                 {
                     question: "Quelle est la médiane de la série: 2, 3, 5, 7, 8?",
                     options: ["5", "4", "5.5", "3"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est l'étendue de la série: 12, 15, 18, 22, 25?",
+                    options: ["13", "12", "18", "10"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la moyenne des nombres: 10, 12, 14, 16, 18?",
+                    options: ["14", "13", "15", "16"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quels sont les quartiles Q1 et Q3 de la série: 5, 7, 8, 10, 12, 15, 18?",
+                    options: ["Q1 = 7, Q3 = 15", "Q1 = 8, Q3 = 12", "Q1 = 7,5, Q3 = 13,5", "Q1 = 8, Q3 = 15"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle représentation graphique permet de visualiser la répartition d'une série statistique?",
+                    options: ["Histogramme", "Diagramme circulaire", "Diagramme en barres", "Graphique cartésien"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est la médiane de la série: 4, 6, 8, 10, 12, 14?",
+                    options: ["9", "8", "10", "8,5"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Si la moyenne de 5 nombres est 12 et que quatre de ces nombres sont 10, 11, 13, 14, quel est le cinquième nombre?",
+                    options: ["12", "13", "11", "14"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Quelle est l'étendue de la série: 25, 30, 35, 40, 45?",
+                    options: ["20", "15", "25", "10"],
+                    correctIndex: 0
+                },
+                {
+                    question: "Dans une série de notes, si Q1 = 8 et Q3 = 14, quel est l'écart interquartile?",
+                    options: ["6", "8", "14", "22"],
                     correctIndex: 0
                 }
             ]
@@ -830,9 +1460,9 @@
             // Mélanger aléatoirement les questions
             shuffleArray(currentQuestions);
             
-            // Limiter à 5 questions par quiz
-            if (currentQuestions.length > 5) {
-                currentQuestions = currentQuestions.slice(0, 5);
+            // Limiter à 10 questions par quiz
+            if (currentQuestions.length > 10) {
+                currentQuestions = currentQuestions.slice(0, 10);
             }
             
             // Mettre à jour le titre du quiz
